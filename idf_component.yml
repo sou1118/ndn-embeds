@@ -1,0 +1,11 @@
+version: "0.1.0"
+description: "Lightweight NDN protocol stack for embedded systems"
+url: "https://github.com/sou1118/ndn-embeds"
+targets:
+  - esp32
+  - esp32s3
+  - esp32c3
+  - esp32c6
+dependencies:
+  idf:
+    version: ">=5.0.0"
