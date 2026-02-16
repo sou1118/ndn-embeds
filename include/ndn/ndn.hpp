@@ -52,18 +52,27 @@ namespace ndn {
 /**
  * @brief Get the global Forwarder instance
  *
- * Provides a Forwarder instance using the singleton pattern.
- * Use after calling initialize().
+ * Returns the Forwarder registered via setForwarder().
+ * Must be called after setForwarder().
  *
- * @return Reference to the global Forwarder
+ * @return Reference to the registered Forwarder
  */
 Forwarder& getForwarder();
 
 /**
+ * @brief Register the application's Forwarder for convenience APIs
+ *
+ * Must be called before using expressInterest(), registerPrefix(), etc.
+ *
+ * @param fw Reference to the application's Forwarder
+ */
+void setForwarder(Forwarder& fw);
+
+/**
  * @brief Initialize the NDN protocol stack
  *
- * Initializes the global Forwarder.
- * Must be called before using other NDN APIs.
+ * Lightweight initialization. The Forwarder is managed by the application;
+ * call setForwarder() to register it for convenience APIs.
  *
  * @return Error::Success on success
  */
